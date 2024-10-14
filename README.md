@@ -17,4 +17,4 @@ Contains essential data for running the scripts, including:
 Stores the memote reports of the model, which provide an evaluation of the model's quality and integrity.
 
 ### `Script` Folder
-Contains the functions and scripts used throughout the project for model simulations and data processing.
+Contains the functions and scripts used throughout the project for model simulations and data processing tasks.
