@@ -39,26 +39,16 @@ This project aims to:
 - solver : 'ibm_cplex'  
 
 ## Installation
-
 1. Clone this repository to your local machine:
-    
-    bash
-    
-    复制代码
-    
-    `git clone https://github.com/your-repo.git`
-    
-2. Set up required MATLAB toolboxes and dependencies (e.g., COBRA Toolbox).
+
+   ```bash
+   git clone https://github.com/KeL1n1995/Chrysanthemic-GEMs.git
+
+2. Set up required MATLAB toolboxes and dependencies
     
 3. Add the necessary paths in MATLAB:
+    `addpath(genpath('yourpath'));`
     
-    matlab
-    
-    复制代码
-    
-    `addpath(genpath('path_to_project'));`
-    
-
 ## Usage
 
 ### Main Scripts
