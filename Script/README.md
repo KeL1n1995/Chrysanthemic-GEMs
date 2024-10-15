@@ -28,7 +28,7 @@ This project aims to:
 - **Simulated gene knockdown**: 
 	-Simulating the reduction of *ispA* expression to enhance the yield of downstream products using `Reduces_ispA_expression.m`
 - **Enzyme kinetic calculations**:
-	- Calculate each enzyme's theoretical maximum reaction rate from UniKP predictions and its proportion relative to other enzymes using `VmaxCalculate.m`.
+	-Calculate each enzyme's theoretical maximum reaction rate from UniKP predictions and its proportion relative to other enzymes using `VmaxCalculate.m`.
 
    
 ### Key Functionalities
