@@ -26,9 +26,9 @@ This project aims to:
 - **Memote Testing**:
 	-Evaluate metabolic models for consistency and performance using `Memote_BL21DE3_CS3.m`, `Memote_BL21DE3_CS5.m`, and `Memote_BL21DE3_WT.m`.
 - **Simulated gene knockdown**: 
-	-Simulating the reduction of *ispA* expression to enhance the yield of downstream products using  `Reduces_ispA_expression.m`
+	-Simulating the reduction of *ispA* expression to enhance the yield of downstream products using `Reduces_ispA_expression.m`
 - **Enzyme kinetic calculations**:
-	- Calculate each enzyme's theoretical maximum reaction rate from UniKP predictions and its proportion relative to other enzymes using  `VmaxCalculate.m`.
+	- Calculate each enzyme's theoretical maximum reaction rate from UniKP predictions and its proportion relative to other enzymes using `VmaxCalculate.m`.
 
    
 ### Key Functionalities
