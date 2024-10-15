@@ -13,13 +13,12 @@ This project involves the analysis, modeling, and simulation of metabolic proces
 - [License](#license)
 
 ## Overview
-
 This project aims to:
 - Reconstruct and update metabolic models.
 - Perform flux variability analysis (FVA) and sampling.
 - Simulating the reduction of *ispA* expression to enhance the yield of downstream products
-### Key Scripts
 
+### Key Scripts
 - **Metabolic Model Reconstruction**:
 	-Rebuild and refine metabolic models using `Reconstruction.m` and `UpdateModel.m`.
 - **Flux Analysis**: 
@@ -28,12 +27,15 @@ This project aims to:
 	-Evaluate metabolic models for consistency and performance using `Memote_BL21DE3_CS3.m`, `Memote_BL21DE3_CS5.m`, and `Memote_BL21DE3_WT.m`.
 - **Simulated gene knockdown**: 
 	-Simulating the reduction of *ispA* expression to enhance the yield of downstream products using  `Reduces_ispA_expression.m`
-### Key Functionalities
+- **Enzyme kinetic calculations**:
+	- Calculate each enzyme's theoretical maximum reaction rate from UniKP predictions and its proportion relative to other enzymes using  `VmaxCalculate.m`.
 
+   
+### Key Functionalities
 - **Data Extraction**: Extract protein-related information using `ExtractProteinInformation.m`.
 - **Update the chemical formulas**: Modify and update the chemical formulas of metabolites in the model  using `ReviseMetsFormula.m`.
+  
 ## Prerequisites
-
 - MATLAB (version 2021a or higher)
 - COBRA Toolbox 3.0
 - solver : 'ibm_cplex'  
@@ -62,7 +64,8 @@ This project aims to:
 - **`SamplingAndFVA.m`**: Combines flux variability analysis with sampling techniques.
 ### Additional Functions
 - **`ExtractProteinInformation.m`**: Extracts key protein information from the model.
-- `ReviseMetsFormula.m` :Modify and update the chemical formulas of metabolites in the model.
+- **`ReviseMetsFormula.m`**:Modify and update the chemical formulas of metabolites in the model.
+- **`VmaxCalculate.m`**:Calculate each enzyme's theoretical maximum reaction rate from UniKP predictions and its proportion relative to other enzymes using the same substrate.
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
