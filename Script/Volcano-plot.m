@@ -1,4 +1,5 @@
-
+%   This script was used to generate the data for Figure 3-C
+%   "Volcano plot of reaction fluxes from flux sampling in the WT and CS3 models."
 %% Volcano plot data preparation
 
 rxn_name=Model.rxns;
