@@ -7,7 +7,6 @@ Name=Table_UniKP.ID;
 S = logspace(-3, 3, 7);
 
 
-
 TPM=EXPO.CS6;
 GeneID=EXPO.Gene;
 [C,IA,IC]=intersect(GeneID,Name);

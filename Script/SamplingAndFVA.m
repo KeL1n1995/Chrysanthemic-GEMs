@@ -22,8 +22,8 @@ model1 = changeRxnBounds(model1, 'EX_glc__D_e',0, 'u');
 model1 = changeRxnBounds(model1, 'BIOMASS_Ec_iJO1366_WT_53p95M',WT, 'l');
 model1 = changeRxnBounds(model1, 'BIOMASS_Ec_iJO1366_WT_53p95M',WT, 'u');
 
-options.nStepsPerPoint = 20;
-options.nPointsReturned = 100;
+options.nStepsPerPoint = 200;
+options.nPointsReturned = 10000;
 
 [P_1, X1_1] =  sampleCbModel(model1, [], [], options);
 
@@ -56,8 +56,8 @@ model2 = changeRxnBounds(model2, 'EX_glc__D_e',0, 'u');
 model2 = changeRxnBounds(model2, 'BIOMASS_Ec_iJO1366_WT_53p95M',CS3, 'l');
 model2 = changeRxnBounds(model2, 'BIOMASS_Ec_iJO1366_WT_53p95M',CS3, 'u');
 
-options.nStepsPerPoint = 20;
-options.nPointsReturned = 100;
+options.nStepsPerPoint = 200;
+options.nPointsReturned = 10000;
 [P_2, X1_2] = sampleCbModel(model2, [], [], options);
 
 

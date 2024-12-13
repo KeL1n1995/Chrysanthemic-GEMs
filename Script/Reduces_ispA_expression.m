@@ -82,6 +82,7 @@ model = addCOBRAConstraints(model, {'DMATT','DPMVD'}, f3+f2+f1, 'c', [1 1], 'dse
 
 X=[0 0.5 1 1.5 2 2.5 3 3.5 4];
 inhibition=2.^X;
+
 % The maximum inhibition fold of ISPA gene is 5
 
 for i=1:length(X)
