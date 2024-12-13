@@ -71,7 +71,7 @@ f4=FBA.x((contains(model.rxns,'CSDP_syn')));
 %The biomass reaction is usually set to 1%-10% of maximum theoretical biomass yield 
 %when running the following steps, to prevent solutions with not biomass formation:
 %maximizing product formation
-model = changeRxnBounds(model, 'BIOMASS_Ec_iJO1366_WT_53p95M',0.15*b1, 'l');
+model = changeRxnBounds(model, 'BIOMASS_Ec_iJO1366_WT_53p95M',0.05*b1, 'l');% origin set: 15%
 model = changeRxnBounds(model, 'BIOMASS_Ec_iJO1366_WT_53p95M',b1, 'u');
 model = changeRxnBounds(model, 'EX_CS_OH',0.0023, 'l');
 model = changeRxnBounds(model, 'EX_CS_OH',30, 'u');
@@ -80,11 +80,11 @@ model = changeRxnBounds(model, 'EX_CS_OH',30, 'u');
 % before ispA inhibition.
 model = addCOBRAConstraints(model, {'DMATT','DPMVD'}, f3+f2+f1, 'c', [1 1], 'dsense', 'L');
 
+X=[0 0.5 1 1.5 2 2.5 3 3.5 4];
+inhibition=2.^X;
 % The maximum inhibition fold of ISPA gene is 5
 
-X=[0 0.5 1 1.5 2 2.5];
-inhibition=2.^X;
-for i=1:6
+for i=1:length(X)
     x=inhibition(i);
 model = changeRxnBounds(model, 'DMATT',f1/x, 'l');
 model = changeRxnBounds(model, 'DMATT',f1/x, 'u');
@@ -103,5 +103,21 @@ bar(X,Z);
 
 xlabel(" -log2(FC(ispA's relative expression))");
 ylabel("chrysanthemol yield(mmol/g DW-hr)");
+
+% 
+load('SelectRxns.mat')
+idx=find(contains(model.rxns,SelectRxns));
+SelectRxnsFluxs=Y(idx,:);
+SelectRxnsNames=model.rxns(idx);
+
+
+
+
+
+
+
+
+
+
 
 

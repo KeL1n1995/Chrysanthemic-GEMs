@@ -19,11 +19,11 @@ model1.ub((contains(model1.rxns,MVA.rxns)))=0;
 model1 = changeRxnBounds(model1, 'EX_glc__D_e',-50, 'l');
 model1 = changeRxnBounds(model1, 'EX_glc__D_e',0, 'u');
 
-model1 = changeRxnBounds(model1, 'BIOMASS_Ec_iJO1366_core_53p95M',WT, 'l');
-model1 = changeRxnBounds(model1, 'BIOMASS_Ec_iJO1366_core_53p95M',WT, 'u');
+model1 = changeRxnBounds(model1, 'BIOMASS_Ec_iJO1366_WT_53p95M',WT, 'l');
+model1 = changeRxnBounds(model1, 'BIOMASS_Ec_iJO1366_WT_53p95M',WT, 'u');
 
-options.nStepsPerPoint = 200;
-options.nPointsReturned = 10000;
+options.nStepsPerPoint = 20;
+options.nPointsReturned = 100;
 
 [P_1, X1_1] =  sampleCbModel(model1, [], [], options);
 
@@ -44,26 +44,29 @@ model2=BL21_CS3;
 
 % model2.c(:)=0;
 model2 = addRatioReaction(BL21_CS3, {'DPMVD' 'CDPMEK'}, [1 5000]);
+
 model2.lb((contains(model2.rxns,MEP.rxns)))=0;
-model2.ub((contains(model2.rxns,MEP.rxns)))=10;
+model2.ub((contains(model2.rxns,MEP.rxns)))=0.1;
 model2.lb((contains(model2.rxns,MVA.rxns)))=0;
 model2.ub((contains(model2.rxns,MVA.rxns)))=100;
 
 model2 = changeRxnBounds(model2, 'EX_glc__D_e',-50, 'l');
 model2 = changeRxnBounds(model2, 'EX_glc__D_e',0, 'u');
 
-model2 = changeRxnBounds(model2, 'BIOMASS_Ec_iJO1366_core_53p95M',CS3, 'l');
-model2 = changeRxnBounds(model2, 'BIOMASS_Ec_iJO1366_core_53p95M',CS3, 'u');
+model2 = changeRxnBounds(model2, 'BIOMASS_Ec_iJO1366_WT_53p95M',CS3, 'l');
+model2 = changeRxnBounds(model2, 'BIOMASS_Ec_iJO1366_WT_53p95M',CS3, 'u');
 
-
+options.nStepsPerPoint = 20;
+options.nPointsReturned = 100;
 [P_2, X1_2] = sampleCbModel(model2, [], [], options);
+
 
 % model2 = changeRxnBounds(model2, 'EX_CS_OH',0.002378323, 'l');
 % model2 = changeRxnBounds(model2, 'EX_CS_OH',0.002378323, 'u');
 
-model2 = changeObjective(model2,'BIOMASS_Ec_iJO1366_core_53p95M', 1);
+model2 = changeObjective(model2,'BIOMASS_Ec_iJO1366_WT_53p95M', 1);
 FBA = optimizeCbModel(model2,'max');
-FBA.f;
+FBA.f
 
 nPts=200;
 sample1=X1_1;

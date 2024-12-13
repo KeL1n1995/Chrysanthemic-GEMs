@@ -24,7 +24,10 @@ for r = 1:length(imbalancedRxnsMass)
         end
 end
 
+
 outmodel = writeCbModel(model, 'format','mat', 'fileName', 'NewBL21DE3_CS5.mat');
+
+
  %% get memote report
 % sbmlModel = writeSBML(model, 'NewBL21DE3_CS5');
 % command = 'memote report snapshot --filename "Memote_BL21DE3_CS5.html" NewBL21DE3_CS5.xml'; % 
