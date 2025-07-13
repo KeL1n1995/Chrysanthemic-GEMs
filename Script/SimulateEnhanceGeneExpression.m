@@ -1,5 +1,5 @@
 
-%% Data source: Fig.4ESimulated optimization of chrysanthemic acid production via enzyme flux manipulation.
+%% Data source: Fig.4E Simulated optimization of chrysanthemic acid production via enzyme flux manipulation.
 clear
 modelDBFile = 'Mains/Model/NewBL21DE3_CS5.mat';
 load(modelDBFile);
