@@ -67,7 +67,7 @@ This project involves the analysis, modeling, and simulation of metabolic proces
 - **`SimulateEnhanceGeneExpression.m`**:Evaluates the enhancement in  *ALDH1*, *ADH2*, or both genes expression and their effects.
 - **`FVAJaccardIndex.m`**: Calculates the Jaccard Index based on FVA results.
 - **`SamplingAndFVA.m`**: Combines flux variability analysis with sampling techniques.
-- **`PredictedEnzymeReactionFlux.m`**:Predicted enzyme reaction flux as a function of substrate concentration and gene expression
+- **`PredictedEnzymeReactionFlux.m`**:Predicted enzyme reaction flux as a function of substrate concentration and gene expression.
 - **`VmaxRateRatiosCalculate`**:The catalytic rate ratios of different enzymes interacting with the DMAPP.
 
 ### Additional Functions
