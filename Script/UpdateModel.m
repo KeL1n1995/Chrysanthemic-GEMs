@@ -142,7 +142,7 @@ GeneMulti = newALL(MultiIdx, :);
 [singlegeneslist, ~, ~] =unique(GeneSingle(:,1));
 [multigeneslist, ~, ~] =unique(GeneMulti(:,1));
 
-model=ori_model01;
+model=modelOut;
 % Map new gene names from GeneSingle to NG
 [LIA,LOCB]= ismember(Origin_gene,GeneSingle(:,1)) ;
 NG=Origin_gene;
@@ -156,7 +156,7 @@ model= updateGenes(model);
 model = generateRules(model);
 
 %% update grRules
-[results, ~] = findRxnsFromGenes(ori_model01,singlegeneslist);
+[results, ~] = findRxnsFromGenes(modelOut,singlegeneslist);
 mergedResults=MergeStruct(results);
 GeneRuleOld=mergedResults(:,5);     
 GeneRuleNew=GeneRuleOld;
