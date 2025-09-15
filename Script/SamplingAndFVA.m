@@ -5,10 +5,21 @@ CS5=1.706;% (mmol/g DW-hr)
 CS3=2.214;% (mmol/g DW-hr)
 MEP.rxns={'DXPRIi';'MEPCT';'CDPMEK';'MECDPS';'MECDPDH2'};
 MVA.rxns={'MHGS';'HMGCOAR';'MEVK1';'PMEVK';'DPMVD'};
+load('NewBL21DE3_CS3.mat');
+
+%% Pre-set
+List={'EX_colipa_e';
+'EX_eca4colipa_e';
+'EX_hacolipa_e';
+'EX_o16a4colipa_e';
+'EX_acolipa_e'};
+model = changeRxnBounds(model, List,-1000*ones(5,1), 'l');
+model = changeRxnBounds(model, List,0*ones(5,1), 'u');
+BL21_CS3=model;
 
 %% simulate the WT strain(only MEP pathway)
 model1=BL21_CS3;
-% model1.c(:)=0;
+
 model1.lb((contains(model1.rxns,MEP.rxns)))=0;
 model1.ub((contains(model1.rxns,MEP.rxns)))=100;
 model1.lb((contains(model1.rxns,MVA.rxns)))=0;
@@ -29,13 +40,10 @@ options.nPointsReturned = 10000;
 %% simulate the CS3 strain(add MVA pathway)
 % add ratio: MEP/MVA
 
-% model2.c(:)=0;
-model2 = addRatioReaction(BL21_CS3, {'DPMVD' 'CDPMEK'}, [1 5000]);
-
 model2.lb((contains(model2.rxns,MEP.rxns)))=0;
 model2.ub((contains(model2.rxns,MEP.rxns)))=0.1;
 model2.lb((contains(model2.rxns,MVA.rxns)))=0;
-model2.ub((contains(model2.rxns,MVA.rxns)))=100;
+model2.ub((contains(model2.rxns,MVA.rxns)))=500;
 
 model2 = changeRxnBounds(model2, 'EX_glc__D_e',-50, 'l');
 model2 = changeRxnBounds(model2, 'EX_glc__D_e',0, 'u');
@@ -69,7 +77,6 @@ maxFlux2((contains(model2.rxns,mets_bypass)))
 
 List=[minFlux1, maxFlux1 minFlux2, maxFlux2];
 
-% % Model = buildRxnEquations(modelOut2);
 idx1 = ismember(model.rxns,'Geraniol_syn1'); % Geraniol
 idx2 = ismember(model.rxns,'FPP_hydro'); % Farnesol
 idx3 = ismember(model.rxns,'Farnesal_acid'); % Farnesal_acid
